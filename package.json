@@ -1,0 +1,33 @@
+{
+  "name": "sheep",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "",
+  "author": "",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.16",
+    "grunt-contrib-requirejs": "~0.3.2",
+    "grunt-jasmine-task": "*",
+    "requirejs": "~2.1.0",
+    "coffee-script": "*",
+    "servedir": "*"
+  }
+}

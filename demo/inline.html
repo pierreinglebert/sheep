@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <title>Demo</title>
+  <script src="../dist/sheep.js"></script>
+</head>
+<body>
+
+<canvas widht="400px" height="400px" id="drawme"></canvas>
+
+
+<script>
+	var world = new sheep.World('drawme');
+	world._forceMouseEnabled = true;
+	sheep.Ticker.init(world);
+	var rect = new sheep.Rectangle(10, 50, 100, 30, '#42210B', world);
+	//, '#8CC63F'
+	world.addChild(rect);
+
+	var circ = new sheep.Circle(100, 80, 100, '#42210B', world);
+	world.addChild(circ);
+
+	var last = {x: 0,y: 0};
+
+	world.onMouseDown = function(x, y) {
+		last.x = x; last.y = y;
+		var children = this.getChildrenAt({'x':x,'y':y,'w':1,'h':1});
+		world.onMouseOver = function(x, y) {
+			for(var i in children) {
+				var child = children[i];
+				child.moveTo(child.x + x - last.x, child.y + y - last.y);
+			}
+			last.x = x; last.y = y;
+		};
+	};
+
+	world.onMouseUp = function(x, y) {
+		world.onMouseOver = function(x, y) {};
+	};
+
+	console.log(world);
+    //indow.nemeria.Ticker.init(this.world);
+</script>
+</body>
+</html>
